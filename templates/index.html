@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Recommender System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+        color: #eee;
+        font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+        background-color: #00a65a !important;
+    }
+    .navbar-brand, .nav-link {
+        color: white !important;
+        font-weight: 600;
+    }
+    .hero {
+        text-align: center;
+        padding: 40px 0;
+    }
+    .hero h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+    }
+    .book-card {
+        background: #20263b;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin-top: 30px;
+        height: 100%;
+    }
+    .book-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .book-card img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+    }
+    .book-card .card-body {
+        padding: 15px;
+    }
+    .book-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+        height: 48px;
+        overflow: hidden;
+    }
+    .book-author {
+        color: #9aa0b5;
+        font-size: 0.9rem;
+    }
+    .badge-stat {
+        background-color: #00a65a;
+        color: white;
+        border-radius: 6px;
+        padding: 3px 8px;
+        font-size: 0.8rem;
+        margin-right: 6px;
+    }
+</style>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand">📚 My Book Recommender</a>
+            <ul class="nav">
+                <li><a class="nav-link" href="/">Home</a></li>
+                <li><a class="nav-link" href="/recommend">Recommend</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Top 50 Books</h1>
+        <p style="color:#9aa0b5">Curated by popularity and ratings</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for i in range(book_name|length) %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="book-card">
+                        <img src="{{ image[i] }}" alt="{{ book_name[i] }}">
+                        <div class="card-body">
+                            <div class="book-title">{{ book_name[i] }}</div>
+                            <div class="book-author">{{ author[i] }}</div>
+                            <div style="margin-top:10px">
+                                <span class="badge-stat">⭐ {{ "%.1f"|format(rating[i]) }}</span>
+                                <span class="badge-stat">👥 {{ votes[i] }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div style="height:50px"></div>
+</body>
+</html>

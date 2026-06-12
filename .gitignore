@@ -1,0 +1,15 @@
+# Data files (too large, regenerate via notebook)
+*.csv
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Virtual environment (if you have one)
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db

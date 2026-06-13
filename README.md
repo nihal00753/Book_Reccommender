@@ -75,15 +75,25 @@ Configured the project for production using a `Procfile` and deployed it on **Py
 ## Project Structure
 
 Book_Reccommender/
+
 │
+
 ├── app.py                          # Flask application & routes
+
 ├── book-recommender-system.ipynb   # Data cleaning, EDA, model building
+
 ├── books.pkl                       # Book metadata
+
 ├── popular.pkl                     # Precomputed popularity rankings
+
 ├── pt.pkl                          # User–book pivot table
+
 ├── similarity_scores.pkl           # Cosine similarity matrix
+
 ├── templates/                      # HTML templates
+
 ├── requirements.txt
+
 └── Procfile                        # Deployment configuration
 
 ---
